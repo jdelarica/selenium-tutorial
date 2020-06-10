@@ -69,4 +69,45 @@ Uses of JavascriptExecutor:<br>
 ### [2.7. Drag and drop](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/DragAndDrop.java)
 
 
+## 3. USING ADVANCED LOCATORS
+### 3.1. Combine multiple CSS attributes
+#### TAG AND CLASS
+#### TAG AND ATTRIBUTE
+#### CLASS AND CLASS
+### 3.2. Text Matching
+#### BY VALUE
+#### WILDCARD
+Prefix
+Suffix
+Substring
+Exact Match
 
+#### CHILD
+Node directly under another node. 
+#### NTH-CHILD
+Used when there are multiple nodes at the same level, under another node. We have an <a> tag within a <div> tag:
+```html
+<div id="parent">
+  <a id="child" href="/child">Child</a>
+</div>
+```	
+
+```java
+driver.findElement(By.cssSelector("div#parent a"));
+```
+
+
+Particularly helpful when there are a list of elements and we want to find one element within the list.
+
+```html
+<ul id="list">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+
+```java
+driver.findElement(By.cssSelector("#list li:nth-child(n)"));
+driver.findElement(By.cssSelector("#list li:nth-child(n=two)"));
+```
