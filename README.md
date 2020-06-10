@@ -71,7 +71,17 @@ Uses of JavascriptExecutor:<br>
 
 ## 3. USING ADVANCED LOCATORS
 ### 3.1. Combine multiple CSS attributes
+This can be necessary when the web page under test has many of the same type of elements, and the css selector needs to describe the unique element and there are no other good options.
+
 #### TAG AND CLASS
+```html
+<input class=”q” type=”text”>
+```
+I could simply use the class name, but maybe the class is also used somewhere else and we want to be more specific and use the tag name as well:
+```java
+driver.findElement(By.cssSelector("input.q"));
+```
+
 #### TAG AND ATTRIBUTE
 #### CLASS AND CLASS
 ### 3.2. Text Matching
