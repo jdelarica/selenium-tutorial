@@ -15,7 +15,7 @@
 4.2. Libraries > Add External JARs > Add all downloaded JARs
 4.3. Now we have two libraries under the Java project: JRE System Library (Default Java dependencies) and Referenced Libraries (downloaded Selenium dependencies)
 
-## 2. USING WEBDRIVER
+## 2. [USING WEBDRIVER](https://github.com/jdelarica/selenium-tutorial/tree/master/src/com/tutorial/selenium/learning/webdriver)
 
 ```java
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,10 +39,10 @@ driver.get("http://www.google.es");
 }
 ```
 
-### 2.1. Keyboard and mouse input
-### 2.2. Using autocomplete
-### 2.3. Scroll to element
-### 2.4. Switch to active window
+### 2.1. [Keyboard and mouse input](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/KeyboardAndMouseInput.java)
+### 2.2. [Using autocomplete](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/Autocomplete.java)
+### 2.3. [Scroll to element](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/Scroll.java)
+### 2.4. [Switch to active window](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/SwitchToActiveWindow.java)
 SwitchTo method allows the driver to switch from windows and offers:
 Switch to window:
 ```java
@@ -56,8 +56,8 @@ Switch to a popup alert:
 ```java
 driver.switchTo().alert();
 ```
-### 2.5. Switch to alert
-### 2.6. Executing JavaScript commands
+### 2.5. [Switch to alert](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/SwitchToAlert.java)
+### 2.6. [Executing JavaScript commands](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/ExecuteJavaScript.java)
 1.	executeAsyncScript: executes an async piece of JS and it must explicitly signal it’s finished by invoking the provided callback.<br>
 2.	executeScript: executes JS as the body of an anonymous function.<br>
 
@@ -66,7 +66,7 @@ Uses of JavascriptExecutor:<br>
 *	To trigger actions on a page. <br>
 *	To perform movement on a page (scroll, zoom…).<br>
 
-### 2.7. Drag and drop
+### 2.7. [Drag and drop](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/DragAndDrop.java)
 
 
 
