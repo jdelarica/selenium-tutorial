@@ -217,4 +217,8 @@ WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By
 Pros: The allow flexibility to wait for an element to be in a specific condition and it will pull the condition to be true every 500ms and it won't take up any unnecessary time.
 
 
-
+## 6. PUTTING EVERYTHING TOGETHER
+## 6.1. Automate a workflow using WebDriver
+## 6.2. Confirm the behavior of the test
+## 6.3. Clean up the test
+## 6.4. Use page objects
