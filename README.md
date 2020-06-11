@@ -120,21 +120,21 @@ driver.findElement(By.cssSelector(".btn.btn-lg.bn-success"));
 driver.findElement(By.cssSelector("<tagname>[type=’<value>’]"));
 ```
 #### WILDCARD
-Prefix
+* Prefix
 ```html
 <div id=”textField_randomId”>
 ```
 ```java
 driver.findElement(By.cssSelector("<div>[id^=’textField’]"));
 ```
-Suffix
+* Suffix
 ```html
 <div id=”randomId_textField”>
 ```
 ```java
 driver.findElement(By.cssSelector("<div>[id$=’textField’]"));
 ```
-Substring
+* Substring
 ```html
 <div id=”123_textField_randomId”>
 ```
@@ -142,7 +142,7 @@ Substring
 driver.findElement(By.cssSelector("<div>[id*=’textField’]"));
 ```
 
-Exact Match
+* Exact Match
 ```html
 <div id=”textField”>
 ```
