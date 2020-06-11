@@ -27,7 +27,7 @@ public class MainScript {
 
 public static void main(String[] args) {
 // Set property for webdriver.chrome.driver to be the location to the local download of chromedriver
-System.setProperty("webdriver.chrome.driver", "C:\\Users\\jdelarica\\eclipse-workspace\\Selenium Drivers\\chromedriver.exe");
+System.setProperty("webdriver.chrome.driver", "PathTochromedriver.exe");
 
 // Create new instance of ChromeDriver
 WebDriver driver = new ChromeDriver();
@@ -70,7 +70,7 @@ Uses of JavascriptExecutor:<br>
 
 
 ## 3. USING ADVANCED LOCATORS
-### 3.1. Combine multiple CSS attributes
+## 3.1. Combine multiple CSS attributes
 This can be necessary when the web page under test has many of the same type of elements, and the css selector needs to describe the unique element and there are no other good options.
 
 #### TAG AND CLASS
@@ -114,7 +114,7 @@ They look pretty similar, the only difference is on their class. To define a css
 driver.findElement(By.cssSelector(".btn.btn-lg.bn-success"));
 ```
 
-### 3.2. Text Matching
+## 3.2. Text Matching
 #### BY VALUE
 ```java
 driver.findElement(By.cssSelector("<tagname>[type=’<value>’]"));
@@ -179,8 +179,43 @@ driver.findElement(By.cssSelector("#list li:nth-child(n=two)"));
 
 ## 4. INTERACTING WITH COMPONENTS
 ## 4.1. Radio button
-
 ## 4.2. Checkbox
 ## 4.3. Date picker
 ## 4.4. Dropdown menu
 ## 4.5. File upload
+
+## 5. SYNZHRONIZATION ISSUES
+Tests usually run really fast, but sometimes it takes a moment for pages to load, actions to finish, components to appear, etc. <br>
+* Browser drivers operate at different speeds. Chrome and Decko are the fastest, and the rest are a bit slower. 
+* While the number of tests increases, there is a discrepancy between running tests in a local machine or runnin in a remote/virtual machine.
+* Network speed and connectivity can be another factor that makes a huge difference.
+* Pages can be slow to render.
+
+Synchronization will always become an issue at some point with Selenium WebDriver tests. How to identify a Sync issue? <br>
+* The test gets stuck at a specific step.
+* "No Such Element Exception" - 
+	* The element could not be found by the locator specified at the time of searching for it.
+	* THe element is not visible or present on the page at the time of searching for it. >> Adding Waits
+
+If the locator has been correctly specified, the solution is adding waits so it slows the test until element becomes available.
+
+## 5.1. Implicit waits
+It tells webdriver to wait for a specified amount of time before throwing a "No Such Element Exception". The default time is "0".
+They don't depend on a certain element state but on a specified time.
+```java
+import java.util.concurrent.TimeUnit;
+driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);
+```
+## 5.2. Explicit waits
+It waits for a specified amount of time for a certain condition to be true. If the condition is not met in the specified time, an exception is thrown. <br>
+The explicit wait is intelligent: It gives better options than implicit waits, allows more flexibility since it will wait for dynamically located elements. <br>
+
+```java
+WebDriverWait wait = new WebDriverWait(driber,10);
+WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("element"));
+```
+
+Pros: The allow flexibility to wait for an element to be in a specific condition and it will pull the condition to be true every 500ms and it won't take up any unnecessary time.
+
+
+
