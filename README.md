@@ -15,7 +15,7 @@
 4.2. Libraries > Add External JARs > Add all downloaded JARs
 4.3. Now we have two libraries under the Java project: JRE System Library (Default Java dependencies) and Referenced Libraries (downloaded Selenium dependencies)
 
-## [2. USING WEBDRIVER](https://github.com/jdelarica/selenium-tutorial/tree/master/src/com/tutorial/selenium/learning/webdriver)
+## 2. USING WEBDRIVER
 
 ```java
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -178,11 +178,10 @@ driver.findElement(By.cssSelector("#list li:nth-child(n=two)"));
 ```
 
 ## 4. INTERACTING WITH COMPONENTS
-## 4.1. Radio button
-## 4.2. Checkbox
-## 4.3. Date picker
-## 4.4. Dropdown menu
-## 4.5. File upload
+### [4.1. Radio button and checkbox](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/RadioButton.java)
+### [4.2. Date picker](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/DatePicker.java)
+### [4.3. Dropdown menu](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/Dropdown.java)
+### [4.4. File upload](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/FileUpload.java)
 
 ## 5. SYNZHRONIZATION ISSUES
 Tests usually run really fast, but sometimes it takes a moment for pages to load, actions to finish, components to appear, etc. <br>
@@ -199,14 +198,14 @@ Synchronization will always become an issue at some point with Selenium WebDrive
 
 If the locator has been correctly specified, the solution is adding waits so it slows the test until element becomes available.
 
-## 5.1. Implicit waits
+## [5.1. Implicit waits](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/synchronization/ImplicitWait.java)
 It tells webdriver to wait for a specified amount of time before throwing a "No Such Element Exception". The default time is "0".
 They don't depend on a certain element state but on a specified time.
 ```java
 import java.util.concurrent.TimeUnit;
 driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);
 ```
-## 5.2. Explicit waits
+## [5.2. Explicit waits](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/synchronization/ExplicitWait.java)
 It waits for a specified amount of time for a certain condition to be true. If the condition is not met in the specified time, an exception is thrown. <br>
 The explicit wait is intelligent: It gives better options than implicit waits, allows more flexibility since it will wait for dynamically located elements. <br>
 
