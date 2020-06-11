@@ -176,3 +176,11 @@ Used when there are multiple nodes at the same level, under another node. Partic
 driver.findElement(By.cssSelector("#list li:nth-child(n)"));
 driver.findElement(By.cssSelector("#list li:nth-child(n=two)"));
 ```
+
+## 4. INTERACTING WITH COMPONENTS
+## 4.1. Radio button
+
+## 4.2. Checkbox
+## 4.3. Date picker
+## 4.4. Dropdown menu
+## 4.5. File upload
