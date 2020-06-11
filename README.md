@@ -178,12 +178,12 @@ driver.findElement(By.cssSelector("#list li:nth-child(n=two)"));
 ```
 
 ## 4. INTERACTING WITH COMPONENTS
-### [4.1. Radio button and checkbox](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/RadioButton.java)
-### [4.2. Date picker](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/DatePicker.java)
-### [4.3. Dropdown menu](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/Dropdown.java)
-### [4.4. File upload](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/FileUpload.java)
+## [4.1. Radio button and checkbox](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/RadioButton.java)
+## [4.2. Date picker](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/DatePicker.java)
+## [4.3. Dropdown menu](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/Dropdown.java)
+## [4.4. File upload](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/components/FileUpload.java)
 
-## 5. SYNZHRONIZATION ISSUES
+## 5. SYNCHRONIZATION ISSUES
 Tests usually run really fast, but sometimes it takes a moment for pages to load, actions to finish, components to appear, etc. <br>
 * Browser drivers operate at different speeds. Chrome and Decko are the fastest, and the rest are a bit slower. 
 * While the number of tests increases, there is a discrepancy between running tests in a local machine or runnin in a remote/virtual machine.
