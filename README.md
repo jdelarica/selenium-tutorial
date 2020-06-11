@@ -43,16 +43,16 @@ driver.get("http://www.google.es");
 ### [2.2. Using autocomplete](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/Autocomplete.java)
 ### [2.3. Scroll to element](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/Scroll.java)
 ### [2.4. Switch to active window](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/webdriver/SwitchToActiveWindow.java)
-SwitchTo method allows the driver to switch from windows and offers:
-Switch to window:
+SwitchTo method allows the driver to switch from windows and offers:<br>
+* Switch to window:
 ```java
 driver.switchTo().window("windowName");
 ```
-Switch to frame:
+* Switch to frame:
 ```java
 driver.switchTo().frame("frameName");
 ```
-Switch to a popup alert:
+* Switch to a popup alert:
 ```java
 driver.switchTo().alert();
 ```
@@ -81,33 +81,88 @@ I could simply use the class name, but maybe the class is also used somewhere el
 ```java
 driver.findElement(By.cssSelector("input.q"));
 ```
-
+#### TAG AND ID
+```html
+<input id=”q” type=”text”>
+```
+```java
+driver.findElement(By.cssSelector("input#q"));
+```
 #### TAG AND ATTRIBUTE
+```html
+<input type= "radio" value=”radiobutton”>
+```
+In this case, I can find the radio button either based on its type or its value. <br>
+* By its type:
+```java
+driver.findElement(By.cssSelector("input[type=’radio’]"));
+```
+* By its value:
+```java
+driver.findElement(By.cssSelector("input[value=’radio button’]"));
+```
 #### CLASS AND CLASS
+We can also define the css selector with multiple classes. It's common to see an HTML element that has many classes.
+Let's say we have the following HTML to define multiple buttons on the page:
+```html
+<button type="button" class="btn btn-lg btn-primary">
+<button type="button" class="btn btn-lg btn-success">
+<button type="button" class="btn btn-lg btn-info">
+```
+They look pretty similar, the only difference is on their class. To define a css selector for the success button:
+```java
+driver.findElement(By.cssSelector(".btn.btn-lg.bn-success"));
+```
+
 ### 3.2. Text Matching
 #### BY VALUE
+```java
+driver.findElement(By.cssSelector("<tagname>[type=’<value>’]"));
+```
 #### WILDCARD
 Prefix
+```html
+<div id=”textField_randomId”>
+```
+```java
+driver.findElement(By.cssSelector("<div>[id^=’textField’]"));
+```
 Suffix
+```html
+<div id=”randomId_textField”>
+```
+```java
+driver.findElement(By.cssSelector("<div>[id$=’textField’]"));
+```
 Substring
+```html
+<div id=”123_textField_randomId”>
+```
+```java
+driver.findElement(By.cssSelector("<div>[id*=’textField’]"));
+```
+
 Exact Match
+```html
+<div id=”textField”>
+```
+```java
+driver.findElement(By.cssSelector("<div>[id=‘textField’]"));
+```
 
 #### CHILD
 Node directly under another node. 
-#### NTH-CHILD
-Used when there are multiple nodes at the same level, under another node. We have an <a> tag within a <div> tag:
 ```html
 <div id="parent">
   <a id="child" href="/child">Child</a>
 </div>
-```	
-
+```
+We have an ```<a>``` tag within a ```<div>``` tag:
 ```java
 driver.findElement(By.cssSelector("div#parent a"));
 ```
-
-
-Particularly helpful when there are a list of elements and we want to find one element within the list.
+#### NTH-CHILD
+Used when there are multiple nodes at the same level, under another node. Particularly helpful when there is a list of elements and we want to find one element within the list:
 
 ```html
 <ul id="list">
