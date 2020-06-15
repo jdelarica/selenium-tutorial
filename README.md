@@ -220,5 +220,67 @@ Pros: The allow flexibility to wait for an element to be in a specific condition
 ## 6. PUTTING EVERYTHING TOGETHER
 ## 6.1. Automate a workflow using WebDriver
 ## 6.2. Confirm the behavior of the test
+Assertions are used in test to confirm values and behaviors. We will need the [JUnit library](https://www.toddlahman.com/import-org-junit-cannot-resolved-eclipse/), which needs to be configured for the project:<br>
+Build Path > Configure Build Path > Libraries > Add Library... > JUnit > JUnit 5 > Apply and close.<br>
+So now we will have 3 libraries:
+* JRE System Library.
+* Referenced Libraries.
+* JUnit 5 Library.
+```java
+// To confirm that the text displayed is the same as the one I expect:
+String alertText = alert.getText();
+assertEquals("The form was successfully submitted!", alertText);
+```
 ## 6.3. Clean up the test
+We can clean up the steps so the code is more readable. We can extract similar functionalities into methods.<br>
+For instance:<br>
+INSTAD OF:
+```java
+driver.findElement(By.id("first-name")).sendKeys("Javier");
+				
+driver.findElement(By.id("last-name")).sendKeys("de la Rica");
+				
+driver.findElement(By.id("job-title")).sendKeys("QA Engineer");
+				
+driver.findElement(By.id("radio-button-2")).click();
+				
+driver.findElement(By.id("checkbox-1")).click();
+				
+driver.findElement(By.cssSelector("option[value='1']")).click();
+			
+driver.findElement(By.id("datepicker")).sendKeys("11/06/2020");
+			
+driver.findElement(By.id("datepicker")).sendKeys(Keys.RETURN);
+				
+driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
+```
+WE HAVE:
+```java
+SubmitForm(driver);
+```
+```java
+public static void SubmitForm(WebDriver driver) {
+// Basic workflow
+driver.findElement(By.id("first-name")).sendKeys("Javier");
+				
+driver.findElement(By.id("last-name")).sendKeys("de la Rica");
+				
+driver.findElement(By.id("job-title")).sendKeys("QA Engineer");
+				
+driver.findElement(By.id("radio-button-2")).click();
+				
+driver.findElement(By.id("checkbox-1")).click();
+				
+driver.findElement(By.cssSelector("option[value='1']")).click();
+			
+driver.findElement(By.id("datepicker")).sendKeys("11/06/2020");
+			
+driver.findElement(By.id("datepicker")).sendKeys(Keys.RETURN);
+				
+driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
+	}
+```
 ## 6.4. Use page objects
+They are useful as they allow functionalities to be separated into different classes based on pages or area functionality in the app. The benefits are that:
+* It can be easy to organize test code.
+* It helps to keep the test clean and readable.
