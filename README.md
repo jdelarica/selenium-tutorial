@@ -294,21 +294,72 @@ One server acts as the hub and routes test commands to nodes. <br>
 * A node is where test are run. Each node is a machine that has their own individual Selenium instances.
 To use the selenium Grid we need to first download and install the latest stable version from the [Selenium stand alone server](https://www.selenium.dev/downloads/).
 From my terminal I make sure I'm at the location where the jar is downloaded:
-```java
+```
 >C:\Users\jdelarica>cd eclipse-workspace/Selenium Jars/selenium-server-grid
 ```
 No we're going to execute the Selenium server stand alone jar to start a hub:
-```java
+```
 >java -jar selenium-server-standalone-3.141.59.jar -role hub      
 >11:19:57.318 INFO [Hub.start] - Clients should connect to http://xx.yy.zzz.t:4444/wd/hub   
 ```
 From my browser now I can connect to:
-```java
+```
 http://xx.yy.zzz.t:4444/grid/console
 ```
 Now I want to register a node to this hub. From a different terminal, <br>
-```java
+```
 >java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://xx.yy.zzz.t:4444                                 
 ```
+
+## Things to know about Selenium Grid
+We will have to maintain our own infrastructure and we'll have to set up the hub and nodes manually, which can be time consuming depending on the amount of nodes.
+We will also have to choose if we run in a physical or virtual infrastructure to host the grid.
+
+## 7.2. Run in CI (Continuous integration)
+Continuons integration provides continuous feedback that tests are working and validates the functionality of the application is working as expected.
+### 7.2.1. CircleCI 
+[CircleCI](https://circleci.com/) is a cloud service that supports GitHub projects and all majo rprogramming languages. It is a flexible tool that offers support to run jobs concurrently up to 16 parallel builds each isolated in their own container.
+### 7.2.2. Jenkins
+[Jenkins](https://jenkins.io) is an open-source CI tool written in Java that can be hosted locally/remotely. Cross-platform tool that offers configuration both through a GUI interface as well as console commands. <br>
+It remains to be one of the best solutions out there, although setting up Jenkins does require some expertise.<br>
+### 7.2.3. TeamCity
+[TeamCity](https://www.jetbrains.com/teamcity/) is from the JetBrais company, and offers all of its features in its free version, and in addition, it's a great solution for enterprise needs as well.
+### 7.2.4. Travis CI
+[Travis CI](https://travis-ci.org/) is one of the oldest CI servers around, and offers both hosted and on-premise variants. It's free for all open-source projects hosted on GitHub and for the first 100 builds. It is a mature solution that is used by many teams.
+
+## 7.3. Picking a CI Server
+* Infrastructure
+* Setup
+* Maintenance
+* Flexibility
+
+## 7.4. Cloud-Based Test Tools
+It allows for hundreds of thousands of combinations of cross-browser, cross-device and cross-platform testing. It's an alternative for building your own Selenium Grid infrastructure where you don't have to worry about maintaining that infrastructure yourself.<br>
+With cloud-based tools, virtual machines can be spun up on demand with a certain set of specifications, run test and then shut down.
+### 7.4.1. Sauce Labs
+[Sauce Labs](https://wwww.saucelabs.com) is easy to set up and offers great support. It supports all major programming languages, allows real device testing in addition to using emulators, great option to run selenium tests, integrates well with CI. It is also super easy to set up:<br>
+You only need to specify Sauce name, Sauce access key and URL to spin up a new virtual machine to specified capabilities, used to create a new remote WebDriver.
+```java
+public class SauceLabsExample {
+
+	public static final String USERNAME = "JDELARICA";
+	public static final String ACCESS_KEY = "YOUR_ACCESS_KEY";
+	public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+	
+	public static void main(String[] args) throws Exception {
+		
+		DesiredCapabilities caps = DesiredCapabilities.chrome();
+		caps.setCapability("platform", "macOS 10.12");
+		caps.setCapability("version", "66.0");
+		
+		WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+		driver.get("http://formy-project.herokuapp.com");
+
+	}
+
+}
+```
+
+
 
 
