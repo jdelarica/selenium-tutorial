@@ -219,7 +219,7 @@ Pros: The allow flexibility to wait for an element to be in a specific condition
 
 ## 6. PUTTING EVERYTHING TOGETHER
 ## 6.1. Automate a workflow using WebDriver
-## 6.2. Confirm the behavior of the test
+## [6.2. Confirm the behavior of the test](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/main/MainTest.java)
 Assertions are used in test to confirm values and behaviors. We will need the [JUnit library](https://www.toddlahman.com/import-org-junit-cannot-resolved-eclipse/), which needs to be configured for the project:<br>
 Build Path > Configure Build Path > Libraries > Add Library... > JUnit > JUnit 5 > Apply and close.<br>
 So now we will have 3 libraries:
@@ -231,7 +231,7 @@ So now we will have 3 libraries:
 String alertText = alert.getText();
 assertEquals("The form was successfully submitted!", alertText);
 ```
-## 6.3. Clean up the test
+## [6.3. Clean up the test](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/main/CleanTest.java)
 We can clean up the steps so the code is more readable. We can extract similar functionalities into methods.<br>
 For instance:<br>
 INSTAD OF:
@@ -280,12 +280,13 @@ driver.findElement(By.id("datepicker")).sendKeys(Keys.RETURN);
 driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
 	}
 ```
-## 6.4. Use page objects
+## [6.4. Use page objects](https://github.com/jdelarica/selenium-tutorial/blob/master/Pages/com/tutorial/selenium/learning/pages/FormPage.java)
 They are useful as they allow functionalities to be separated into different classes based on pages or area functionality in the app. The benefits are that:
 * It can be easy to organize test code.
 * It helps to keep the test clean and readable.
 
 ## 7. PROJECT INTEGRATION
+
 ## 7.1. Setup CI
 Selenium Grid is a proxy server that routes commands to remote browser instances.
 It spreads the load of testing across several machines, and those machines can run different browsers and browser versions, and different platforms as well.
@@ -317,13 +318,17 @@ We will also have to choose if we run in a physical or virtual infrastructure to
 
 ## 7.2. Run in CI (Continuous integration)
 Continuons integration provides continuous feedback that tests are working and validates the functionality of the application is working as expected.
+
 ### 7.2.1. CircleCI 
 [CircleCI](https://circleci.com/) is a cloud service that supports GitHub projects and all majo rprogramming languages. It is a flexible tool that offers support to run jobs concurrently up to 16 parallel builds each isolated in their own container.
+
 ### 7.2.2. Jenkins
 [Jenkins](https://jenkins.io) is an open-source CI tool written in Java that can be hosted locally/remotely. Cross-platform tool that offers configuration both through a GUI interface as well as console commands. <br>
-It remains to be one of the best solutions out there, although setting up Jenkins does require some expertise.<br>
+It remains to be one of the best solutions out there, although setting up Jenkins does require some expertise.
+
 ### 7.2.3. TeamCity
 [TeamCity](https://www.jetbrains.com/teamcity/) is from the JetBrais company, and offers all of its features in its free version, and in addition, it's a great solution for enterprise needs as well.
+
 ### 7.2.4. Travis CI
 [Travis CI](https://travis-ci.org/) is one of the oldest CI servers around, and offers both hosted and on-premise variants. It's free for all open-source projects hosted on GitHub and for the first 100 builds. It is a mature solution that is used by many teams.
 
@@ -336,7 +341,8 @@ It remains to be one of the best solutions out there, although setting up Jenkin
 ## 7.4. Cloud-Based Test Tools
 It allows for hundreds of thousands of combinations of cross-browser, cross-device and cross-platform testing. It's an alternative for building your own Selenium Grid infrastructure where you don't have to worry about maintaining that infrastructure yourself.<br>
 With cloud-based tools, virtual machines can be spun up on demand with a certain set of specifications, run test and then shut down.
-### 7.4.1. Sauce Labs
+
+### [7.4.1. Sauce Labs](https://github.com/jdelarica/selenium-tutorial/blob/master/src/com/tutorial/selenium/learning/cloud/SauceLabs.java)
 [Sauce Labs](https://wwww.saucelabs.com) is easy to set up and offers great support. It supports all major programming languages, allows real device testing in addition to using emulators, great option to run selenium tests, integrates well with CI. It is also super easy to set up:<br>
 You only need to specify Sauce name, Sauce access key and URL to spin up a new virtual machine to specified capabilities, used to create a new remote WebDriver.
 ```java
@@ -359,7 +365,3 @@ public class SauceLabsExample {
 
 }
 ```
-
-
-
-
