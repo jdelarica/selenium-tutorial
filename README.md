@@ -284,3 +284,31 @@ driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
 They are useful as they allow functionalities to be separated into different classes based on pages or area functionality in the app. The benefits are that:
 * It can be easy to organize test code.
 * It helps to keep the test clean and readable.
+
+## 7. PROJECT INTEGRATION
+## 7.1. Setup CI
+Selenium Grid is a proxy server that routes commands to remote browser instances.
+It spreads the load of testing across several machines, and those machines can run different browsers and browser versions, and different platforms as well.
+One server acts as the hub and routes test commands to nodes. <br>
+* A hub is a central point from where tests are executed. It also provides a list of servers that provide access to browser instances or web server nodes.
+* A node is where test are run. Each node is a machine that has their own individual Selenium instances.
+To use the selenium Grid we need to first download and install the latest stable version from the [Selenium stand alone server](https://www.selenium.dev/downloads/).
+From my terminal I make sure I'm at the location where the jar is downloaded:
+```java
+>C:\Users\jdelarica>cd eclipse-workspace/Selenium Jars/selenium-server-grid
+```
+No we're going to execute the Selenium server stand alone jar to start a hub:
+```java
+>java -jar selenium-server-standalone-3.141.59.jar -role hub      
+>11:19:57.318 INFO [Hub.start] - Clients should connect to http://xx.yy.zzz.t:4444/wd/hub   
+```
+From my browser now I can connect to:
+```java
+http://xx.yy.zzz.t:4444/grid/console
+```
+Now I want to register a node to this hub. From a different terminal, <br>
+```java
+>java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://xx.yy.zzz.t:4444                                 
+```
+
+
