@@ -1,5 +1,5 @@
 # SELENIUM BASICS
-
+ 
 ## 1. ENVIRONMENT SETUP
 1. Download and install latest JDK version with JRE from:
 [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads.index.html) <br>
