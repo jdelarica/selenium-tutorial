@@ -3,7 +3,7 @@
 ## 1. ENVIRONMENT SETUP
 1. Download and install latest JDK version with JRE from:
 [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads.index.html) <br>
-
+ 
 2. Download and install Eclipse from:
 [Eclipse](https://www.eclipse.org/downloads/) <br>
 3. Download latest version of selenium server from:
